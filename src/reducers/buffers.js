@@ -5,7 +5,14 @@ import initialState from './buffersInitialState';
 export default function buffers(state=initialState, action) {
   switch (action.type) {
     case BUFFERS_UPDATE:
-      return state;
+      return state.map((buffer) => {
+        return (buffer.fileName === action.fileName) ?
+          objectAssign({}, buffer, {
+            value: action.value
+          })
+        :
+          buffer;
+      });
     default:
       return state;
   }

@@ -25,6 +25,27 @@ class Editor extends React.Component {
     }, 50);
   }
 
+  updateHTML(value) {
+    this.props.actions.buffersUpdate({
+      fileName: 'index.html',
+      value
+    });
+  }
+
+  updateCSS(value) {
+    this.props.actions.buffersUpdate({
+      fileName: 'style.css',
+      value
+    });
+  }
+
+  updateJS(value) {
+    this.props.actions.buffersUpdate({
+      fileName: 'script.js',
+      value
+    });
+  }
+
   render() {
     let optionsForMode = (m) => ({
       lineNumbers: true,
@@ -33,7 +54,19 @@ class Editor extends React.Component {
     });
     let { state } = this.props;
     let initialFor = (targetName) =>
-      state.find((b) => b.fileName === targetName).initialValue;
+      state.find((b) => b.fileName === targetName).value;
+    let debug =
+      <div style={{ color: 'white' }}>
+        <ul>
+          {state.map((b) =>
+            <li>
+              name: {b.fileName}
+              {b.value}
+              <br />
+            </li>
+          )}
+        </ul>
+      </div>;
     return (
       <div className="editor">
         <div className="ui top attached menu">
@@ -45,18 +78,21 @@ class Editor extends React.Component {
           <Codemirror
             ref="editorHTML"
             value={initialFor('index.html')}
+            onChange={this.updateHTML.bind(this)}
             options={optionsForMode('text/html')} />
         </div>
         <div className="ui tab" data-tab="css">
           <Codemirror
             ref="editorCSS"
             value={initialFor('style.css')}
+            onChange={this.updateCSS.bind(this)}
             options={optionsForMode('css')} />
         </div>
         <div className="ui tab" data-tab="js">
           <Codemirror
             ref="editorJS"
             value={initialFor('script.js')}
+            onChange={this.updateJS.bind(this)}
             options={optionsForMode('text/javascript')} />
         </div>
       </div>

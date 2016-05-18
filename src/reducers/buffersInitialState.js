@@ -1,7 +1,7 @@
 export default [{
   fileName: 'index.html',
   mimeType: 'text/html',
-  initialValue: `<!DOCTYPE html>
+  value: `<!DOCTYPE html>
 <html>
   <head></head>
   <body>
@@ -11,13 +11,13 @@ export default [{
 }, {
   fileName: 'style.css',
   mimeType: 'css',
-  initialValue: `body {
+  value: `body {
   /* START HERE */
 }`
 }, {
   fileName: 'script.js',
   mimeType: 'text/javascript',
-  initialValue: `(function () {
+  value: `(function () {
   // START HERE
 })();`
 }];
