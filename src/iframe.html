@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    </style>
+    <script id="page-script"></script>
+  </head>
+  <body>
+    <h1>Output browser</h1>
+    <h2>Subheader</h2>
+    <p id="para">A paragraph</p>
+  </body>
+  <script>
+    window.addEventListener("message", function (event) {
+      var setTag = function (tagName, inner) {
+        if (inner) {
+          var $el = jQuery(
+            document.getElementsByTagName(tagName)[0]
+          );
+          $el.html(inner);
+        }
+      };
+      setTag('body', event.data.html);
+      setTag('style', event.data.css);
+      var js = document.getElementById("page-script");
+      js.innerHTML = event.data.js;
+    }, false);
+  </script>
+</html>

@@ -1,0 +1,234 @@
+$c_accent: #FFE400;
+$c_accent_hover: yellow;
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  font-size: 16px;
+  font-smoothing: antialiased;
+  margin: 0;
+  padding: 0;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6, .title {
+  cursor: default;
+}
+
+div#app {
+  width: 100%;
+  height: 100%;
+}
+
+div#app div#wrap {
+  width: 100%;
+  height: 100%;
+}
+
+div#app div#wrap div.bg {
+  background: url('../assets/bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  filter: blur(10px);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+div#app div.intro {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  z-index: 10;
+  h1 {
+    color: white;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 3em;
+  }
+}
+
+div#app div#classroom-full-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+
+  div.toolbar {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 1em 0.5em;
+    color: white;
+    z-index: 10;
+    a {
+      color: #ccc;
+      margin: 0 0.5em;
+    }
+  }
+}
+
+div#app div#classroom-full-wrapper div.wrapper-course {
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  div.container-progression {
+  }
+
+  div.container-main {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+
+    div.instructions {
+      width: 25%;
+      max-width: 350px;
+      min-width: 250px;
+      overflow: scroll;
+    }
+
+    div.editor {
+      background-color: rgba(0, 0, 0, 0.2);
+      flex: 1;
+    }
+
+    div.gutter-right {
+      width: 25%;
+      max-width: 450px;
+      min-width: 250px;
+    }
+
+    div.output {
+      z-index: 20;
+      width: 35%;
+      min-height: 450px;
+      min-width: 700px;
+      position: absolute;
+      bottom: 2em;
+      right: 2em;
+      div.chrome {
+        background-color: rgba(255, 255, 255, 0.6);
+        display: flex;
+        padding: 0.5em 1em;
+        position: relative;
+        border-radius: 10px 10px 0 0;
+        div {
+          opacity: 0.8;
+        }
+        div.overlay {
+          z-index: 30;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+        }
+        div.ui.button {
+          background-color: white !important;
+          i {
+            position: relative;
+            top: 0.2em;
+          }
+        }
+        div.ui.icon.input {
+          flex: 1;
+          margin-left: 1em;
+          margin-right: 2em;
+        }
+      }
+
+      iframe#output {
+        background-color: white;
+        width: 100%;
+        min-height: 450px;
+        border: none;
+      }
+    }
+  }
+
+  div.container-footer {
+  }
+
+}
+
+$p_0: #201C35;
+$p_1: #67355A;
+$p_2: #FF79C6;
+
+/* Semantic overrides
+ * TODO: Set these as a custom theme using semantic's theming support.
+ */
+div.ui {
+  a.item {
+    background-color: rgba(0, 0, 0, 0.0) !important;
+    color: white !important;
+    border-bottom: 2px solid rgba(0, 0, 0, 0);
+  }
+
+  a.item.active {
+    border-bottom: 2px solid $p_2;
+  }
+}
+
+.ui.accent.button {
+  background-color: $c_accent;
+  color: black;
+  &:hover {
+    background-color: $c_accent_hover;
+  }
+}
+
+div.progress-meter {
+  display: flex;
+  margin: 0.5em 0;
+  div.step {
+    background-color: rgba(255, 255, 255, 0.5);
+    flex-grow: 1;
+    text-align: center;
+    &.completed {
+      color: white;
+      background-color: green;
+    }
+    &.current {
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+  }
+}
+
+div.instructions {
+  div.ui.card {
+    border: none;
+    &.past {
+      background-color: rgba(255, 255, 255, 0.3);
+      box-shadow: none;
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.5);
+      }
+    }
+  }
+
+  .ui.button.disabled {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+div.editor {
+  div.ui.menu {
+    background-color: black !important;
+    border: none !important;
+  }
+}

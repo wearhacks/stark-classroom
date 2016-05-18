@@ -1,0 +1,25 @@
+{
+    "title": "Basics of HTML, CSS, and Javascript",
+    "description": "A course teaching web basics.",
+    "lessons": [{
+        "content": {
+            "title": "Learning HTML",
+            "body": "The first bit of knowledge we'll impart to you."
+        }
+    }, {
+        "content": {
+            "title": "Second Instruction",
+            "body": "Say some things here"
+        }
+    }, {
+        "content": {
+            "title": "Third Instruction",
+            "body": "A body to be"
+        }
+    }, {
+        "content": {
+            "title": "Fourth Instruction",
+            "body": "Last lesson"
+        }
+    }]
+}

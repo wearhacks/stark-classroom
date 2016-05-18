@@ -1,0 +1,57 @@
+.CodeMirror {
+  height: auto;
+  font-size: 14px;
+}
+
+.CodeMirror {
+  // background-color: rgb(0, 0, 0, 0.3);
+}
+
+div.cm-s-custom.CodeMirror {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+  .CodeMirror-gutters {
+    background-color: rgba(0, 0, 0, 0.2) !important;
+  }
+  .CodeMirror-linenumber {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.CodeMirror-selected {
+  background: rgb(62,68,80) !important;
+}
+
+/* Code Mirror THEME */
+/*
+.CodeMirror {
+  background-color: rgb(40,44,52);
+  color: white;
+}
+.CodeMirror-cursor {
+  border-left: 2px solid rgb(91,171,238);
+}
+.CodeMirror-gutters {
+  background: rgb(40,44,52);
+  color: #555;
+  border-right:0;
+}
+.box-html  .cm-s-default .cm-atom { color: #96b38a; }
+.box-css  .cm-s-default .cm-tag { color: #ddca7e; }
+.CodeMirror-linenumber {
+  color: rgb(75,82,100);
+}
+.box {
+  background: rgb(40,44,52);
+}
+.CodeMirror-line::selection, .CodeMirror-line > span::selection, .CodeMirror-line > span > span::selection {
+    background: rgb(62,68,80);
+}
+.CodeMirror-selected {
+  background: rgb(62,68,80) !important;
+}
+.CodeMirror .readonly {
+    background: rgba(204, 204, 204, 0.16);
+    opacity: 0.5;
+}
+
+*/
