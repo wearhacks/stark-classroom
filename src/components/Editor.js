@@ -13,58 +13,6 @@ import '../styles/codemirror-override.scss';
 
 import 'semantic-ui/dist/semantic.js';
 
-const chunkHTML = `<!DOCTYPE html>
-<html>
-  <body>
-    <div class="container">
-      <table>
-        <tr>
-          <th>A header</th>
-          <th>Second</th>
-          <th>Last</th>
-        </tr>
-          <td>A cell</td>
-          <td>Another</td>
-          <td>Last</td>
-        <tr>
-        </tr>
-      </table>
-    </div>
-  </body>
-</html>`;
-
-const chunkCSS = `body {
-  background-color: red;
-}
-
-table {
-  width: 300px;
-  padding: 1em;
-  margin-bottom: 0.5em;
-}
-
-table tr {
-  margin: 0.5em 0;
-}
-
-table th {
-  background-color: #CCCCCCC;
-}
-
-table td {
-  background-color: #FAFAFA;
-}`;
-
-const chunkJS = `(function () {
-  var a = {
-    a: 'b', c: 33
-  };
-  var f = function () {
-    return 7;
-  }
-  f();
-})();`;
-
 class Editor extends React.Component {
   componentDidMount() {
     $('.menu .item').tab();
@@ -83,6 +31,9 @@ class Editor extends React.Component {
       theme: 'dracula custom',
       mode: m
     });
+    let { state } = this.props;
+    let initialFor = (targetName) =>
+      state.find((b) => b.fileName === targetName).initialValue;
     return (
       <div className="editor">
         <div className="ui top attached menu">
@@ -93,19 +44,19 @@ class Editor extends React.Component {
         <div className="ui active tab" data-tab="html">
           <Codemirror
             ref="editorHTML"
-            value={chunkHTML}
+            value={initialFor('index.html')}
             options={optionsForMode('text/html')} />
         </div>
         <div className="ui tab" data-tab="css">
           <Codemirror
             ref="editorCSS"
-            value={chunkCSS}
+            value={initialFor('style.css')}
             options={optionsForMode('css')} />
         </div>
         <div className="ui tab" data-tab="js">
           <Codemirror
             ref="editorJS"
-            value={chunkJS}
+            value={initialFor('script.js')}
             options={optionsForMode('text/javascript')} />
         </div>
       </div>
@@ -114,7 +65,7 @@ class Editor extends React.Component {
 }
 
 Editor.propTypes = {
-  state: PropTypes.object.isRequired,
+  state: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
 };
 

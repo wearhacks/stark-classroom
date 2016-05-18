@@ -35,7 +35,7 @@ export const CourseContainer = (props) => {
 CourseContainer.propTypes = {
   actionsBuffers      : PropTypes.object.isRequired,
   actionsInstructions : PropTypes.object.isRequired,
-  stateBuffers        : PropTypes.object.isRequired,
+  stateBuffers        : PropTypes.array.isRequired,
   stateInstructions   : PropTypes.object.isRequired
 };
 
