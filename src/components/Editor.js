@@ -16,85 +16,70 @@ import 'semantic-ui/dist/semantic.js';
 class Editor extends React.Component {
   componentDidMount() {
     $('.menu .item').tab();
-    let cms = [
-      'editorHTML', 'editorCSS', 'editorJS'
-    ].map((refName) => this.refs[refName].getCodeMirror());
+    let fileNames = this.props.state.map((b) => b.fileName);
+    let cms = fileNames.map((refName) => this.refs[refName].getCodeMirror());
     // TODO: Remove hacky timing fix.
     setTimeout(() => {
       cms.forEach((editor) => editor.refresh());
     }, 50);
   }
 
-  updateHTML(value) {
+  updateBuffer(value) {
     this.props.actions.buffersUpdate({
-      fileName: 'index.html',
-      value
-    });
-  }
-
-  updateCSS(value) {
-    this.props.actions.buffersUpdate({
-      fileName: 'style.css',
-      value
-    });
-  }
-
-  updateJS(value) {
-    this.props.actions.buffersUpdate({
-      fileName: 'script.js',
+      fileName: this.fileName,
       value
     });
   }
 
   render() {
-    let optionsForMode = (m) => ({
-      lineNumbers: true,
-      theme: 'dracula custom',
-      mode: m
-    });
     let { state } = this.props;
-    let initialFor = (targetName) =>
-      state.find((b) => b.fileName === targetName).value;
-    let debug =
+    let debug = (
       <div style={{ color: 'white' }}>
         <ul>
-          {state.map((b) =>
-            <li>
+          {state.map((b, i) =>
+            <li key={i}>
               name: {b.fileName}
               {b.value}
               <br />
             </li>
           )}
         </ul>
-      </div>;
+      </div>
+    );
+    let tabs = (
+      <div className="ui top attached menu">
+        {
+          state.map((buffer, i) =>
+            <a className={['item', (i === 0) ? 'active' : ''].join(' ')}
+               data-tab={buffer.fileName}
+               key={i}>{buffer.fileName}</a>
+          )
+        }
+      </div>
+    );
+    let editors = state.map((buffer, i) =>
+      <div className={['ui', 'tab', (i === 0) ? 'active' : ''].join(' ')}
+           data-tab={buffer.fileName}
+           key={i}>
+        <Codemirror
+          ref={buffer.fileName}
+          value={buffer.value}
+          onChange={
+            this.updateBuffer.bind(Object.assign({}, this, {
+              fileName: buffer.fileName
+            }))
+          }
+          options={{
+            lineNumbers: true,
+            theme: 'dracula custom',
+            mode: buffer.mimeType
+          }} />
+      </div>
+    );
     return (
       <div className="editor">
-        <div className="ui top attached menu">
-          <a className="active item" data-tab="html">index.html</a>
-          <a className="item" data-tab="css">style.css</a>
-          <a className="item" data-tab="js">script.js</a>
-        </div>
-        <div className="ui active tab" data-tab="html">
-          <Codemirror
-            ref="editorHTML"
-            value={initialFor('index.html')}
-            onChange={this.updateHTML.bind(this)}
-            options={optionsForMode('text/html')} />
-        </div>
-        <div className="ui tab" data-tab="css">
-          <Codemirror
-            ref="editorCSS"
-            value={initialFor('style.css')}
-            onChange={this.updateCSS.bind(this)}
-            options={optionsForMode('css')} />
-        </div>
-        <div className="ui tab" data-tab="js">
-          <Codemirror
-            ref="editorJS"
-            value={initialFor('script.js')}
-            onChange={this.updateJS.bind(this)}
-            options={optionsForMode('text/javascript')} />
-        </div>
+        {tabs}
+        {editors}
       </div>
     );
   }

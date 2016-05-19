@@ -3,7 +3,6 @@ import Markdown from 'react-markdown';
 
 class Lesson extends React.Component {
   render() {
-    console.log(Object.keys(this.props));
     let { content, progress, actions, index } = this.props;
     let past = progress.lesson !== index
     let continueClassName = [
