@@ -20,7 +20,11 @@
           $el.html(inner);
         }
       };
-      setTag('body', event.data.html);
+      var html   = event.data.html,
+          parser = new DOMParser(),
+          doc    = parser.parseFromString(html, "text/html"),
+          body   = doc.body.innerHTML;
+      setTag('body', body);
       setTag('style', event.data.css);
       var js = document.getElementById("page-script");
       js.innerHTML = event.data.js;
