@@ -1,10 +1,10 @@
 .CodeMirror {
   height: auto;
   font-size: 14px;
-}
 
-.CodeMirror {
-  // background-color: rgb(0, 0, 0, 0.3);
+  .readOnly {
+    opacity: 0.6;
+  }
 }
 
 div.cm-s-custom.CodeMirror {

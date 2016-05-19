@@ -18,10 +18,27 @@ class Editor extends React.Component {
     $('.menu .item').tab();
     let fileNames = this.props.state.map((b) => b.fileName);
     let cms = fileNames.map((refName) => this.refs[refName].getCodeMirror());
+
+    let setReadOnly = (cm) => {
+      let markLinesR = (start, end) => cm.markText(
+        {line: start, ch: 0}, {line: end}, {
+          readOnly: true,
+          className: 'readOnly'
+        }
+      );
+      cm.eachLine((line) => {
+        let num = line.lineNo();
+        let isReadOnly = line.text.match(/^~/);
+        line.text = isReadOnly ? line.text.replace('~', '') : line.text;
+        if (isReadOnly) markLinesR(num, num);
+      });
+    }
+
     // TODO: Remove hacky timing fix.
-    setTimeout(() => {
-      cms.forEach((editor) => editor.refresh());
-    }, 50);
+    setTimeout(() => cms.forEach((editor) => {
+        setReadOnly(editor);
+        editor.refresh();
+    }), 50);
   }
 
   updateBuffer(value) {

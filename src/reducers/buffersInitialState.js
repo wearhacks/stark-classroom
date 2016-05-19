@@ -1,13 +1,13 @@
 export default [{
   fileName: 'index.html',
   mimeType: 'text/html',
-  value: `<!DOCTYPE html>
-<html>
-  <head></head>
-  <body>
-    <!-- START HERE -->
-  </body>
-</html>`
+  value: `~<!DOCTYPE html>
+~<html>
+~ <head></head>
+~ <body>
+    <p>Hello, World!</p>
+~ </body>
+~</html>`
 }, {
   fileName: 'style.css',
   mimeType: 'css',

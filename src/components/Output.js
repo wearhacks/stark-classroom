@@ -3,9 +3,14 @@ import React, { PropTypes } from 'react';
 class Output extends React.Component {
   componentDidMount() {
     this.iframe.contentWindow.jQuery = jQuery;
+    this.updatePage();
   }
 
   componentDidUpdate() {
+    this.updatePage();
+  }
+
+  updatePage() {
     let getBuffer = (name) =>
       this.props.state.find((b) => b.fileName === name).value;
     let buffers = {
