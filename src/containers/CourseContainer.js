@@ -23,7 +23,8 @@ export const CourseContainer = (props) => {
           state={props.stateBuffers}
           actions={props.actionsBuffers} />
         <div className="gutter-right" />
-        <Output />
+        <Output
+          state={props.stateBuffers} />
       </div>
       <div className="container-footer">
         Footer

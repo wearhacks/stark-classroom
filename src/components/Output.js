@@ -5,27 +5,20 @@ class Output extends React.Component {
     this.iframe.contentWindow.jQuery = jQuery;
   }
 
-  pm() {
-    let html = `
-      <h1>A heading coming from posty</h1>
-      <h2>A sub coming from posty</h2>
-    `;
-    let css = `
-      body {
-        background-color: honeydew;
-      }
-    `;
-    let js = `
-      alert('local javascript');
-    `;
-    let buffers = { html, css, js };
+  componentDidUpdate() {
+    let getBuffer = (name) =>
+      this.props.state.find((b) => b.fileName === name).value;
+    let buffers = {
+      html: getBuffer('index.html'),
+      css: getBuffer('style.css')
+    };
     this.iframe.contentWindow.postMessage(buffers, 'http://localhost:3000');
   }
 
   render() {
     let chrome =
       <div className="chrome">
-        <div className="overlay" onClick={this.pm.bind(this)}/>
+        <div className="overlay" />
         <div className="ui buttons small basic">
           <div className="ui button">
             <i className="ui icon left chevron" />
