@@ -2,21 +2,45 @@
     "title": "Basics of HTML, CSS, and Javascript",
     "description": "A course teaching web basics.",
     "lessons": [{
+        "type": "instruction",
         "content": {
             "title": "Learning HTML",
             "body": "The first bit of knowledge we'll impart to you."
         }
-    }, {
+    },  {
+        "type": "exercises",
         "content": {
-            "title": "Second Instruction",
-            "body": "Say some things here"
-        }
+            "title": "Some exercises",
+            "body": "Follows the exercises below in turn."
+        },
+        "exercises": [{
+                "body": "Add a table tag",
+                "pass": {
+                    "type": "html",
+                    "has": "<table></table>"
+                }
+            } , {
+                "body": "Create a row",
+                "pass": {
+                    "type": "html",
+                    "has": "<table><tr></tr></table>"
+                }
+            }, {
+                "body": "Create a header within the row",
+                "pass": {
+                    "type": "html",
+                    "has": "<table><tr><th></th></tr></table>"
+                }
+            }, {
+                "body": "Create a header within the row",
+                "pass": {
+                    "type": "html",
+                    "has": "<table><tr><th></th></tr></table>"
+                }
+            }
+        ]
     }, {
-        "content": {
-            "title": "Third Instruction",
-            "body": "A body to be"
-        }
-    }, {
+        "type": "Instruction",
         "content": {
             "title": "Fourth Instruction",
             "body": "Last lesson"

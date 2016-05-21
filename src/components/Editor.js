@@ -36,8 +36,8 @@ class Editor extends React.Component {
 
     // TODO: Remove hacky timing fix.
     setTimeout(() => cms.forEach((editor) => {
-        setReadOnly(editor);
-        editor.refresh();
+      setReadOnly(editor);
+      editor.refresh();
     }), 50);
   }
 

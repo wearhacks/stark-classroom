@@ -3,7 +3,14 @@ import Markdown from 'react-markdown';
 
 class Lesson extends React.Component {
   render() {
-    let { content, progress, actions, index } = this.props;
+    let {
+      type,
+      content,
+      progress,
+      exercises,
+      actions,
+      index
+    } = this.props;
     let past = progress.lesson !== index
     let continueClassName = [
       'ui', 'bottom', 'attached', 'button',
@@ -13,6 +20,29 @@ class Lesson extends React.Component {
       'ui', 'card',
       past ? 'past' : ''
     ].join(' ');
+    let buttonContinue = (
+      (type === 'instruction') ?
+        <div className={continueClassName} onClick={actions.lessonNext}>
+          CONTINUE
+          <i className="right chevron icon" />
+        </div>
+      :
+        <div></div>
+    );
+    let listExercises = (
+      (type === 'exercises') ?
+        <div className="exercises">
+          <ul>
+            {
+              exercises.map((exercise, i) =>
+                <li key={i}>{exercise.body}</li>
+              )
+            }
+          </ul>
+        </div>
+      :
+        <div></div>
+    );
     return (
       <div className={cardClassName}>
         <div className="content">
@@ -22,11 +52,9 @@ class Lesson extends React.Component {
           <div className="description">
             <Markdown source={content.body} escapeHtml={true} />
           </div>
+          {listExercises}
         </div>
-        <div className={continueClassName} onClick={actions.lessonNext}>
-          CONTINUE
-          <i className="right chevron icon" />
-        </div>
+        {buttonContinue}
       </div>
     );
   }
