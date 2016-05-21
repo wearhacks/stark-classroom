@@ -10,17 +10,17 @@ class Instructions extends React.Component {
     let { state, actions } = this.props,
         progress = state.progress;
     let lessons = state.lessons.filter((_, i) =>
-        i <= progress.lesson
-      ).map((lesson, i) =>
-        <Lesson
-          key={i}
-          index={i}
-          progress={state.progress}
-          type={lesson.type}
-          content={lesson.content}
-          exercises={lesson.exercises}
-          actions={actions} />
-      );
+      i <= progress.lesson
+    ).map((lesson, i) =>
+      <Lesson
+        key={i}
+        index={i}
+        progress={state.progress}
+        type={lesson.type}
+        content={lesson.content}
+        exercises={lesson.exercises}
+        actions={actions} />
+    );
     return (
       <div className="instructions">
         {lessons}

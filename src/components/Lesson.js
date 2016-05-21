@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import Markdown from 'react-markdown';
+import classnames from 'classnames';
 
 class Lesson extends React.Component {
   render() {
@@ -12,14 +13,9 @@ class Lesson extends React.Component {
       index
     } = this.props;
     let past = progress.lesson !== index
-    let continueClassName = [
-      'ui', 'bottom', 'attached', 'button',
-       past ? 'disabled' : ''
-    ].join(' ');
-    let cardClassName = [
-      'ui', 'card',
-      past ? 'past' : ''
-    ].join(' ');
+    let continueClassName = classnames('ui', 'bottom', 'attached', 'button', {
+      'disabled': past
+    });
     let buttonContinue = (
       (type === 'instruction') ?
         <div className={continueClassName} onClick={actions.lessonNext}>
@@ -44,7 +40,7 @@ class Lesson extends React.Component {
         <div></div>
     );
     return (
-      <div className={cardClassName}>
+      <div className={classnames('ui', 'card', { 'past': past })}>
         <div className="content">
           <a className="header">
             {content.title}

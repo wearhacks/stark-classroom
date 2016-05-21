@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import classnames from 'classnames';
 
 class ProgressMeter extends React.Component {
   render() {
@@ -7,10 +8,10 @@ class ProgressMeter extends React.Component {
     let steps = state.lessons.map((lesson, i) => {
       let isCurrent   = i == progress.lesson,
           isCompleted = i < progress.lesson;
-      let className = [
-        'step',
-        isCompleted ? 'completed' : isCurrent ? 'current' : ''
-      ].join(' ');
+      let className = classnames('step', {
+        'completed': isCompleted,
+        'current': isCurrent
+      });
       return (
         <div key={i} className={className}>
           {lesson.content.title}

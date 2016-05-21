@@ -1,12 +1,12 @@
 import React, { PropTypes } from 'react';
 
 import 'object-assign';
+import classnames from 'classnames';
 
 import Codemirror from 'react-codemirror';
 import 'codemirror/mode/xml/xml';
 import 'codemirror/mode/css/css';
 import 'codemirror/mode/javascript/javascript';
-
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/dracula.css';
 import '../styles/codemirror-override.scss';
@@ -67,7 +67,7 @@ class Editor extends React.Component {
       <div className="ui top attached menu">
         {
           state.map((buffer, i) =>
-            <a className={['item', (i === 0) ? 'active' : ''].join(' ')}
+            <a className={classnames('item', { 'active': i === 0 })}
                data-tab={buffer.fileName}
                key={i}>{buffer.fileName}</a>
           )
@@ -75,7 +75,7 @@ class Editor extends React.Component {
       </div>
     );
     let editors = state.map((buffer, i) =>
-      <div className={['ui', 'tab', (i === 0) ? 'active' : ''].join(' ')}
+      <div className={classnames('ui', 'tab', { 'active': i === 0 })}
            data-tab={buffer.fileName}
            key={i}>
         <Codemirror
