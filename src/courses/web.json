@@ -1,6 +1,19 @@
 {
     "title": "Basics of HTML, CSS, and Javascript",
     "description": "A course teaching web basics.",
+    "buffers": [{
+      "fileName": "index.html",
+      "mimeType": "text/html",
+      "value:": "~<!DOCTYPE html>\n~<html>\n~  <head></head>\n~  <body>\n    <p>Hello, World!</p>\n~  </body>\n~</html>"
+    }, {
+      "fileName": "style.css",
+      "mimeType": "css",
+      "value": "body {\n  /* START HERE */\n}"
+    }, {
+      "fileName": "script.js",
+      "mimeType": "text/javascript",
+      "value": "(function () {\n  // START HERE\n})();"
+    }],
     "lessons": [{
         "type": "instruction",
         "content": {

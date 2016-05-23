@@ -1,8 +1,9 @@
 import { BUFFERS_UPDATE } from '../constants/actionTypes';
 import objectAssign from 'object-assign';
-import initialState from './buffersInitialState';
 
-export default function buffers(state=initialState, action) {
+const web = require('../courses/web.json');
+
+export default function buffers(state=web.buffers, action) {
   switch (action.type) {
     case BUFFERS_UPDATE:
       return state.map((buffer) => {
