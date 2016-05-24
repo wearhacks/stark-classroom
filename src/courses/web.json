@@ -2,17 +2,18 @@
     "title": "Basics of HTML, CSS, and Javascript",
     "description": "A course teaching web basics.",
     "buffers": [{
-      "fileName": "index.html",
-      "mimeType": "text/html",
-      "value:": "~<!DOCTYPE html>\n~<html>\n~  <head></head>\n~  <body>\n    <p>Hello, World!</p>\n~  </body>\n~</html>"
+        "fileName": "index.html",
+        "mimeType": "text/html",
+        "value": "~<!DOCTYPE html>\n~<html>\n~  <head></head>\n~  <body>\n    <p>Hello, World!</p>\n~  </body>\n~</html>",
+        "isInitial": true
     }, {
-      "fileName": "style.css",
-      "mimeType": "css",
-      "value": "body {\n  /* START HERE */\n}"
+        "fileName": "style.css",
+        "mimeType": "css",
+        "value": "body {\n  /* START HERE */\n}"
     }, {
-      "fileName": "script.js",
-      "mimeType": "text/javascript",
-      "value": "(function () {\n  // START HERE\n})();"
+        "fileName": "script.js",
+        "mimeType": "text/javascript",
+        "value": "(function () {\n  // START HERE\n})();"
     }],
     "lessons": [{
         "type": "instruction",
@@ -20,38 +21,37 @@
             "title": "Learning HTML",
             "body": "The first bit of knowledge we'll impart to you."
         }
-    },  {
+    }, {
         "type": "exercises",
         "content": {
             "title": "Some exercises",
             "body": "Follows the exercises below in turn."
         },
         "exercises": [{
-                "body": "Add a table tag",
-                "pass": {
-                    "type": "html",
-                    "has": "<table></table>"
-                }
-            } , {
-                "body": "Create a row",
-                "pass": {
-                    "type": "html",
-                    "has": "<table><tr></tr></table>"
-                }
-            }, {
-                "body": "Create a header within the row",
-                "pass": {
-                    "type": "html",
-                    "has": "<table><tr><th></th></tr></table>"
-                }
-            }, {
-                "body": "Create a header within the row",
-                "pass": {
-                    "type": "html",
-                    "has": "<table><tr><th></th></tr></table>"
-                }
+            "body": "Add a table tag",
+            "pass": {
+                "type": "html",
+                "has": "<table></table>"
             }
-        ]
+        } , {
+            "body": "Create a row",
+            "pass": {
+                "type": "html",
+                "has": "<table><tr></tr></table>"
+            }
+        }, {
+            "body": "Create a header within the row",
+            "pass": {
+                "type": "html",
+                "has": "<table><tr><th></th></tr></table>"
+            }
+        }, {
+            "body": "Create a header within the row",
+            "pass": {
+                "type": "html",
+                "has": "<table><tr><th></th></tr></table>"
+            }
+        }]
     }, {
         "type": "Instruction",
         "content": {

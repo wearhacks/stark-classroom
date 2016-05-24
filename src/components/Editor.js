@@ -50,24 +50,11 @@ class Editor extends React.Component {
 
   render() {
     let { state } = this.props;
-    let debug = (
-      <div style={{ color: 'white' }}>
-        <ul>
-          {state.map((b, i) =>
-            <li key={i}>
-              name: {b.fileName}
-              {b.value}
-              <br />
-            </li>
-          )}
-        </ul>
-      </div>
-    );
     let tabs = (
       <div className="ui top attached menu">
         {
           state.map((buffer, i) =>
-            <a className={classnames('item', { 'active': i === 0 })}
+            <a className={classnames('item', { 'active': buffer.isInitial })}
                data-tab={buffer.fileName}
                key={i}>{buffer.fileName}</a>
           )
@@ -75,7 +62,7 @@ class Editor extends React.Component {
       </div>
     );
     let editors = state.map((buffer, i) =>
-      <div className={classnames('ui', 'tab', { 'active': i === 0 })}
+      <div className={classnames('ui', 'tab', { 'active': buffer.isInitial })}
            data-tab={buffer.fileName}
            key={i}>
         <Codemirror
