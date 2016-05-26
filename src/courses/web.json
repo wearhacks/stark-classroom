@@ -31,25 +31,25 @@
             "body": "Add a table tag",
             "pass": {
                 "type": "html",
-                "has": "<table></table>"
+                "includes": "<table></table>"
             }
         } , {
             "body": "Create a row",
             "pass": {
                 "type": "html",
-                "has": "<table><tr></tr></table>"
+                "includes": "<table><tr></tr></table>"
             }
         }, {
             "body": "Create a header within the row",
             "pass": {
                 "type": "html",
-                "has": "<table><tr><th></th></tr></table>"
+                "includes": "<table><tr><th></th></tr></table>"
             }
         }, {
             "body": "Create a header within the row",
             "pass": {
                 "type": "html",
-                "has": "<table><tr><th></th></tr></table>"
+                "includes": "<table><tr><th></th></tr></table>"
             }
         }]
     }, {
