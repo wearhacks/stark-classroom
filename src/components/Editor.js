@@ -32,7 +32,7 @@ class Editor extends React.Component {
         line.text = isReadOnly ? line.text.replace('~', '') : line.text;
         if (isReadOnly) markLinesR(num, num);
       });
-    }
+    };
 
     // TODO: Remove hacky timing fix.
     setTimeout(() => cms.forEach((editor) => {

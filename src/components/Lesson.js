@@ -12,7 +12,7 @@ class Lesson extends React.Component {
       actions,
       index
     } = this.props;
-    let past = progress.lesson !== index
+    let past = progress.lesson !== index;
     let continueClassName = classnames('ui', 'bottom', 'attached', 'button', {
       'disabled': past
     });
@@ -57,9 +57,12 @@ class Lesson extends React.Component {
 }
 
 Lesson.PropTypes = {
+  type: PropTypes.string.isRequired,
   content: PropTypes.object.isRequired,
   progress: PropTypes.object.isRequired,
-  actions: PropTypes.object.isRequired
+  exercises: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired,
+  index: PropTypes.number.isRequired
 };
 
 export default Lesson;
