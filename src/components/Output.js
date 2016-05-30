@@ -21,7 +21,7 @@ class Output extends React.Component {
   }
 
   render() {
-    let chrome =
+    let chrome = (
       <div className="chrome">
         <div className="overlay" />
         <div className="ui buttons small basic">
@@ -35,7 +35,8 @@ class Output extends React.Component {
         <div className="ui icon small input">
           <input type="text" placeholder="http://" />
         </div>
-      </div>;
+      </div>
+    );
     return (
       <div className="output">
         {chrome}
@@ -52,6 +53,7 @@ class Output extends React.Component {
 }
 
 Output.propTypes = {
+  state: PropTypes.array.isRequired
 };
 
 export default Output;

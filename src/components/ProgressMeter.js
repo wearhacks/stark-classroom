@@ -26,4 +26,8 @@ class ProgressMeter extends React.Component {
   }
 }
 
+ProgressMeter.propTypes = {
+  state: PropTypes.object.isRequired
+};
+
 export default ProgressMeter;

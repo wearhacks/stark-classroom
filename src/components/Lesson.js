@@ -56,7 +56,7 @@ class Lesson extends React.Component {
   }
 }
 
-Lesson.PropTypes = {
+Lesson.propTypes = {
   type: PropTypes.string.isRequired,
   content: PropTypes.object.isRequired,
   progress: PropTypes.object.isRequired,
