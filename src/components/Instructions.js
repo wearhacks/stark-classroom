@@ -8,7 +8,7 @@ class Instructions extends React.Component {
 
   render() {
     const { state, actions } = this.props,
-        progress = state.progress;
+          progress = state.progress;
     const lessons = state.lessons.filter((_, i) =>
       i <= progress.lesson
     ).map((lesson, i) =>

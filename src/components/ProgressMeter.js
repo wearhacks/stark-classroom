@@ -6,8 +6,8 @@ class ProgressMeter extends React.Component {
     const { state } = this.props,
           progress  = state.progress;
     const steps = state.lessons.map((lesson, i) => {
-      const isCurrent = i == progress.lesson,
-          isCompleted = i < progress.lesson;
+      const isCurrent   = i == progress.lesson,
+            isCompleted = i < progress.lesson;
       const className = classnames('step', {
         'completed': isCompleted,
         'current': isCurrent
