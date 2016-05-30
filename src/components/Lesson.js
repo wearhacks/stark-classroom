@@ -4,7 +4,7 @@ import classnames from 'classnames';
 
 class Lesson extends React.Component {
   render() {
-    let {
+    const {
       type,
       content,
       progress,
@@ -12,11 +12,11 @@ class Lesson extends React.Component {
       actions,
       index
     } = this.props;
-    let past = progress.lesson !== index;
-    let continueClassName = classnames('ui', 'bottom', 'attached', 'button', {
+    const past = progress.lesson !== index;
+    const continueClassName = classnames('ui', 'bottom', 'attached', 'button', {
       'disabled': past
     });
-    let buttonContinue = (
+    const buttonContinue = (
       (type === 'instruction') ?
         <div className={continueClassName} onClick={actions.lessonNext}>
           CONTINUE
@@ -25,7 +25,7 @@ class Lesson extends React.Component {
       :
         <div></div>
     );
-    let listExercises = (
+    const listExercises = (
       (type === 'exercises') ?
         <div className="exercises">
           <ul>

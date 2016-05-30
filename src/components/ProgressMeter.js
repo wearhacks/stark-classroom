@@ -3,12 +3,12 @@ import classnames from 'classnames';
 
 class ProgressMeter extends React.Component {
   render() {
-    let { state } = this.props,
-        progress = state.progress;
-    let steps = state.lessons.map((lesson, i) => {
-      let isCurrent   = i == progress.lesson,
+    const { state } = this.props,
+          progress  = state.progress;
+    const steps = state.lessons.map((lesson, i) => {
+      const isCurrent = i == progress.lesson,
           isCompleted = i < progress.lesson;
-      let className = classnames('step', {
+      const className = classnames('step', {
         'completed': isCompleted,
         'current': isCurrent
       });

@@ -16,19 +16,19 @@ import 'semantic-ui/dist/semantic.js';
 class Editor extends React.Component {
   componentDidMount() {
     $('.menu .item').tab();
-    let fileNames = this.props.state.map((b) => b.fileName);
-    let cms = fileNames.map((refName) => this.refs[refName].getCodeMirror());
+    const fileNames = this.props.state.map((b) => b.fileName);
+    const cms = fileNames.map((refName) => this.refs[refName].getCodeMirror());
 
-    let setReadOnly = (cm) => {
-      let markLinesR = (start, end) => cm.markText(
+    const setReadOnly = (cm) => {
+      const markLinesR = (start, end) => cm.markText(
         {line: start, ch: 0}, {line: end}, {
           readOnly: true,
           className: 'readOnly'
         }
       );
       cm.eachLine((line) => {
-        let num = line.lineNo();
-        let isReadOnly = line.text.match(/^~/);
+        const num = line.lineNo();
+        const isReadOnly = line.text.match(/^~/);
         line.text = isReadOnly ? line.text.replace('~', '') : line.text;
         if (isReadOnly) markLinesR(num, num);
       });
@@ -49,8 +49,8 @@ class Editor extends React.Component {
   }
 
   render() {
-    let { state } = this.props;
-    let tabs = (
+    const { state } = this.props;
+    const tabs = (
       <div className="ui top attached menu">
         {
           state.map((buffer, i) =>
@@ -61,7 +61,7 @@ class Editor extends React.Component {
         }
       </div>
     );
-    let editors = state.map((buffer, i) =>
+    const editors = state.map((buffer, i) =>
       <div className={classnames('ui', 'tab', { 'active': buffer.isInitial })}
            data-tab={buffer.fileName}
            key={i}>

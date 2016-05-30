@@ -11,9 +11,9 @@ class Output extends React.Component {
   }
 
   updatePage() {
-    let getBuffer = (name) =>
+    const getBuffer = (name) =>
       this.props.state.find((b) => b.fileName === name).value;
-    let buffers = {
+    const buffers = {
       html: getBuffer('index.html'),
       css: getBuffer('style.css')
     };
@@ -21,7 +21,7 @@ class Output extends React.Component {
   }
 
   render() {
-    let chrome = (
+    const chrome = (
       <div className="chrome">
         <div className="overlay" />
         <div className="ui buttons small basic">
