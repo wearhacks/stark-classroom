@@ -16,9 +16,7 @@ class Instructions extends React.Component {
         key={i}
         index={i}
         progress={state.progress}
-        type={lesson.type}
-        content={lesson.content}
-        exercises={lesson.exercises}
+        state={lesson}
         actions={actions} />
     );
     return (

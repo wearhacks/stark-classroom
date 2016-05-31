@@ -5,13 +5,16 @@ import classnames from 'classnames';
 class Lesson extends React.Component {
   render() {
     const {
-      type,
-      content,
+      state,
       progress,
-      exercises,
       actions,
       index
     } = this.props;
+    const {
+      type,
+      content,
+      exercises
+    } = state;
     const past = progress.lesson !== index;
     const continueClassName = classnames('ui', 'bottom', 'attached', 'button', {
       'disabled': past
@@ -57,10 +60,8 @@ class Lesson extends React.Component {
 }
 
 Lesson.propTypes = {
-  type: PropTypes.string.isRequired,
-  content: PropTypes.object.isRequired,
+  state: PropTypes.object.isRequired,
   progress: PropTypes.object.isRequired,
-  exercises: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired,
   index: PropTypes.number.isRequired
 };
